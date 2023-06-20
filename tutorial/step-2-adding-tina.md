@@ -130,3 +130,5 @@ const nextConfig = {
 
 export default nextConfig
 ```
+
+Head to `http://localhost:3000/admin` to confirm
