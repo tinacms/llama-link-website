@@ -10,4 +10,4 @@ npm install
 npm run dev
 ```
 
-![Running the initial site](./tutorial/images/step-1.png)
+![Running the initial site](./images/step-1.png)
