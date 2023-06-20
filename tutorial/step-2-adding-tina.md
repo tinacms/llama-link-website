@@ -1,37 +1,64 @@
-# Running the static website
+# Adding Tina
 
-This repo comes with a fully-functional website template, complete with a home page, a blog list page, and a blog page. To start, all of the content has been hardcoded, run the `develop` script to see things in action:
-
-```
-npm install
-```
+TinaCMS will enable us to use Markdown files for our content, we'll then use that content to replace the hardcoded content we have in our components.
 
 ```
-npm run dev
+npm install tinacms @tinacms/cli
 ```
 
-You should see the homepage:
+## Add the `tina` folder
 
-![Running the initial site](./images/step-1.png)
+The `tina/config.ts` file is where you configure Tina. Here, you'll define the schema for your content, as well as instructions
+for how to source media, and where Tina should bundle it's output to.
 
-## Familiarizing yourself with the website
+```
+mkdir tina
+```
 
-This website is built on NextJS using the `/app` directory. You can find more details about how NextJS works by visiting their [documentation](https://nextjs.org/docs/app)
+Next, lets add the config file:
 
-### The `app/page` route
+```
+touch tina/config.ts
+```
 
-This is the home page, and it renders a few components: `SiteHeader`, `WelcomeHero`, `FeatureList`, `FeaturedReading`, and `Footer`. These are the basic
-building blocks for generic pages you may want throughout the site.
+We'll also add a `.gitignore`. Tina bundles some files during builds which we don't want to include in Git history
 
-### The `app/blog` route
+```
+touch tina/.gitignore
+```
 
-Here we have a hardcoded list of blog posts. We'll be replacing these with real data from TinaCMS
+Add `__generated__` to the `.gitignore`:
 
-### The `app/blog/[slug]` route
+```
+// tina/.gitignore
+__generated__
+```
 
-This is the blog page for each post, you'll notice that the data is hardcoded here as well
+In the `tina/config.ts` file, we'll define our config:
 
-### The `components` directory
+```ts
+import { defineConfig } from "tinacms"
 
-This is where we're storing all of the components for the site, a lot of what we'll be doing in this tutorial is replacing their
-content with data from Tina.
+export default defineConfig({
+  build: {
+    publicFolder: "public",
+    outputFolder: "admin",
+  },
+  schema: {
+    collections: [
+      {
+        label: "Page",
+        name: "page",
+        path: "content/pages",
+        fields: [{ name: "title", label: "Title" }],
+      },
+    ],
+  },
+  // These values will be used by Tina Cloud when we're ready to deploy to our host
+  branch: "",
+  clientId: "",
+  token: "",
+})
+```
+
+You can read more about the `tina/config.ts` [here](https://tina.io/docs/reference/config/).
