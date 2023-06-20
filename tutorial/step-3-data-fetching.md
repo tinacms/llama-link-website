@@ -33,3 +33,7 @@ export default async function Page() {
 //   )
 // }
 ```
+
+You should see the data for the `home.md` page on your screen at `http://locahost:3000`:
+
+![Dumping data to the screen](./images/step-3.png)

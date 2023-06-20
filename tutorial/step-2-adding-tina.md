@@ -143,7 +143,7 @@ Visit [http://localhost:3000/admin#/collections/new/page/~/](http://localhost:30
 
 Let's call it `"Home"`, and use `home` as the filename:
 
-![Running the initial site](./images/step-2-b.png)
+![Adding content](./images/step-2-b.png)
 
 Notice Tina added the markdown file to your filesystem at `content/pages/home.md` with the `title` field in the frontmatter:
 
