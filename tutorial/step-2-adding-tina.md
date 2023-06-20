@@ -132,3 +132,14 @@ export default nextConfig
 ```
 
 Head to `http://localhost:3000/admin` to confirm
+
+## Adding the `home` page
+
+Let's use Tina to build some content. You'll notice we only have the `Page` collection in the Tina dashboard, let's create a home page
+to get started, it'll only have one field, since that's all that we've defined in our schema in `tina/config.ts`
+
+Visit [http://localhost:3000/admin#/collections/new/page/~/](http://localhost:3000/admin#/collections/new/page/~/)
+
+Let's call it `"Home", and use `home.md` as the filename:
+
+![Running the initial site](./images/step-2-homepage.png)
