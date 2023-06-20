@@ -140,6 +140,6 @@ to get started, it'll only have one field, since that's all that we've defined i
 
 Visit [http://localhost:3000/admin#/collections/new/page/~/](http://localhost:3000/admin#/collections/new/page/~/)
 
-Let's call it `"Home", and use `home.md` as the filename:
+Let's call it `"Home"`, and use `home.md` as the filename:
 
 ![Running the initial site](./images/step-2-homepage.png)
