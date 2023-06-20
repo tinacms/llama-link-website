@@ -110,7 +110,7 @@ As you can see here, Tina exports a bundle into the "public" directory of your f
 
 It'd be nice if we could just visit `http://localhost:3000/admin`, but out of the box, NextJS doesn't serve `.html` files at their base paths. To fix this, we'll update the `next.config.js`:
 
-```js,diff
+```diff
 // next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
