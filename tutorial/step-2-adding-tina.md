@@ -71,7 +71,6 @@ passing a sub-command to Tina's dev command. We'll replace the `dev` script in o
 ```json
 "scripts": {
   "dev": "tinacms dev -c \"next dev\"",
-  ...
 ```
 
 Now let's run it:
@@ -80,7 +79,7 @@ Now let's run it:
 npm run dev
 ```
 
-You'll notice some additional output from Tina in your terminal,
+You'll notice some additional output from Tina in your terminal:
 
 ```sh
 Starting Tina Dev Server
@@ -104,3 +103,30 @@ Starting subprocess: next dev
 ```
 
 As you can see here, Tina exports a bundle into the "public" directory of your framwork. Since we specified `/admin` as the `build.outputFolder` in our Tina config and our NextJS process is running on port `3000`, Tina can be seen by visiting `http://localhost:3000/admin/index.html`
+
+![Running the initial site](./images/step-2.png)
+
+### Cleaning up the URL
+
+It'd be nice if we could just visit `http://localhost:3000/admin`, but out of the box, NextJS doesn't serve `.html` files at their base paths. To fix this, we'll update the `next.config.js`:
+
+```js,diff
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
++  async rewrites() {
++    return [
++      {
++        source: "/admin",
++        destination: "/admin/index.html",
++      },
++    ]
++  },
+}
+
+export default nextConfig
+```
