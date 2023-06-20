@@ -30,7 +30,8 @@ Here we have a hardcoded list of blog posts. We'll be replacing these with real 
 
 ### The `app/blog/[slug]` route
 
-This is the blog page for each post, you'll notice that the data is hardcoded here as well
+This is the blog page for each post, you'll notice that the data is hardcoded here as well. When we add tina we'll use the dynamic `[slug]` parameter
+to fetch the appropriate post (eg. `/blog/hello-world`)
 
 ### The `components` directory
 
